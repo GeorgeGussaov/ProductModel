@@ -1,0 +1,30 @@
+﻿@model Order
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Наименование</th>
+                    <th>Цена (руб)</th>
+                    <th>Количество</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Cart.Products)
+                {
+                    <tr>
+                        <td>@item.Product.Name</td>
+                        <td>@item.Product.Cost</td>
+                        <td>@item.Amount</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col text-right">
+        <h3>ИТОГО - @Model.Cart.TotalCost руб.</h3>
+    </div>
+</div>
